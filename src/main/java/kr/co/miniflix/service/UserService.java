@@ -9,10 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class UserService {
+
     private final UserRepository userRepository;
 
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public void saveUser(UserSignupRequest requset) {
+        userRepository.save(new User(requset.getUserId(), requset.getPassword()));
     }
 
 }
