@@ -1,5 +1,7 @@
 package kr.co.miniflix.service;
 
+import java.util.List;
+import kr.co.miniflix.domain.User;
 import kr.co.miniflix.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -8,5 +10,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+
+    public List<User> getAllUsers() {
+        return userRepository.findAll();
+    }
 
 }
